@@ -32,17 +32,77 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ILH-fG-unJ"/>
                                 </connections>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcy-Wi-dhs">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4RR-HU-bDG"/>
+                                    <constraint firstAttribute="width" constant="46" id="uMM-Z8-Qix"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="filterBooksWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o3v-ya-p8b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5398483878" blue="0.31395346089999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="z2D-wD-7ec" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B51-aS-7Bg"/>
                             <constraint firstItem="z2D-wD-7ec" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.6" id="Qng-c0-QP0"/>
+                            <constraint firstItem="gcy-Wi-dhs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sfd-iI-UNb"/>
+                            <constraint firstItem="z2D-wD-7ec" firstAttribute="top" secondItem="gcy-Wi-dhs" secondAttribute="bottom" constant="8" id="UXK-Ox-HOb"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="90" y="146"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9QA-MP-1VU">
+            <objects>
+                <navigationController storyboardIdentifier="popover" navigationBarHidden="YES" id="XlN-WX-8Xt" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rii-CZ-AqY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="QbY-yH-dy4" kind="relationship" relationship="rootViewController" id="ma9-9C-jOY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xnU-rj-xPy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815" y="145"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ECt-x7-cI2">
+            <objects>
+                <viewController id="QbY-yH-dy4" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r3x-RW-g1z"/>
+                        <viewControllerLayoutGuide type="bottom" id="fC8-m8-86j"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H69-Gt-Anc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noO-Ea-SNB">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="GBN-7a-TQi"/>
+                                    <constraint firstAttribute="height" constant="30" id="cSE-sl-NxI"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="noO-Ea-SNB" firstAttribute="centerY" secondItem="H69-Gt-Anc" secondAttribute="centerY" id="Mjr-Mb-6Pw"/>
+                            <constraint firstItem="noO-Ea-SNB" firstAttribute="centerX" secondItem="H69-Gt-Anc" secondAttribute="centerX" id="i9B-bK-8Tu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZdA-Jy-C5p"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hVh-gW-1yR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1551" y="145"/>
         </scene>
     </scenes>
 </document>
