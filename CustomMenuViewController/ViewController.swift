@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController , DetailViewControllerDelegate, UIPopoverPresentationControllerDelegate{
+class ViewController: UIViewController , DetailViewControllerDelegate, UIPopoverPresentationControllerDelegate, UITextViewDelegate{
     
     var filterDistanceViewController:UIViewController!
     @IBOutlet weak var textView: CustomMenuViewController!
@@ -18,25 +18,20 @@ class ViewController: UIViewController , DetailViewControllerDelegate, UIPopover
         
         filterDistanceViewController = (self.storyboard?.instantiateViewController(withIdentifier: "popover"))!
         self.filterDistanceViewController.modalPresentationStyle = UIModalPresentationStyle.popover
-        self.filterDistanceViewController.preferredContentSize = CGSize(width: 375, height: 113)
+        self.filterDistanceViewController.preferredContentSize = CGSize(width: 150, height: 40)
         
         textView.popoverDelegate = self;
+        textView.delegate = self
         
+        let theString = "<h1>H1 title</h1><b>Logo</b><center><font color='red'>deneme</font><br>~end~"
+        
+        let theAttributedString = try! NSAttributedString(data: theString.data(using: String.Encoding.utf8, allowLossyConversion: false)!,options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+                                                          documentAttributes: nil)
+        
+        textView.attributedText = theAttributedString
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-    }
-    
-    func movePopoverTo(rect: CGRect) {
-        
-        
-        self.showPopover(rect: rect)
-        
-    }
-    
-    @IBAction func showPopover(rect: CGRect)
+   func movePopoverTo(rect: CGRect)
     {
         
         DispatchQueue.main.async {
@@ -57,14 +52,6 @@ class ViewController: UIViewController , DetailViewControllerDelegate, UIPopover
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none;
     }
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
 }
 

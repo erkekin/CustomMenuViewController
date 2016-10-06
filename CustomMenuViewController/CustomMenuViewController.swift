@@ -42,7 +42,7 @@ class CustomMenuViewController: UITextView {
                     
                     
                     
-                    self.popoverDelegate?.movePopoverTo(rect: self .convert(unionRect, to: self.superview))
+                    self.popoverDelegate?.movePopoverTo(rect: self.convert(unionRect, to: self.superview))
                     
                 }
             }
