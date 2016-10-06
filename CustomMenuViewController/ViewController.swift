@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+
+
 class ViewController: UIViewController , DetailViewControllerDelegate, UIPopoverPresentationControllerDelegate, UITextViewDelegate{
     
     var filterDistanceViewController:UIViewController!
@@ -29,9 +32,10 @@ class ViewController: UIViewController , DetailViewControllerDelegate, UIPopover
                                                           documentAttributes: nil)
         
         textView.attributedText = theAttributedString
+        
     }
     
-   func movePopoverTo(rect: CGRect)
+    func movePopoverTo(rect: CGRect)
     {
         
         DispatchQueue.main.async {
@@ -47,6 +51,13 @@ class ViewController: UIViewController , DetailViewControllerDelegate, UIPopover
             
         }
         
+    }
+    
+    func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        
+        textView.selectedTextRange = nil;
+        
+        return true
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {

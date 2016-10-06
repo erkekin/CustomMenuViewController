@@ -14,8 +14,6 @@ import UIKit
     
 }
 
-
-
 class CustomMenuViewController: UITextView {
     
     @IBOutlet weak var popoverDelegate:DetailViewControllerDelegate?
@@ -28,7 +26,7 @@ class CustomMenuViewController: UITextView {
     }
     
     func willShowMenu(){
-        
+   
         DispatchQueue.main.async {
             
             UIMenuController.shared.setMenuVisible(false, animated: false)
@@ -39,8 +37,6 @@ class CustomMenuViewController: UITextView {
                     let start = self.caretRect(for: selectedRectStart)
                     let end = self.caretRect(for: selectedRectEnd)
                     let unionRect = start.union(end)
-                    
-                    
                     
                     self.popoverDelegate?.movePopoverTo(rect: self.convert(unionRect, to: self.superview))
                     
