@@ -12,6 +12,7 @@
 		FFA5A12D1DA62446009C5CA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFA5A12B1DA62446009C5CA3 /* Main.storyboard */; };
 		FFA5A12F1DA62446009C5CA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFA5A12E1DA62446009C5CA3 /* Assets.xcassets */; };
 		FFA5A1321DA62446009C5CA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFA5A1301DA62446009C5CA3 /* LaunchScreen.storyboard */; };
+		FFA5A13A1DA624F8009C5CA3 /* CustomMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA5A1391DA624F8009C5CA3 /* CustomMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		FFA5A12E1DA62446009C5CA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFA5A1311DA62446009C5CA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFA5A1331DA62446009C5CA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFA5A1391DA624F8009C5CA3 /* CustomMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				FFA5A1271DA62446009C5CA3 /* AppDelegate.swift */,
 				FFA5A1291DA62446009C5CA3 /* ViewController.swift */,
+				FFA5A1391DA624F8009C5CA3 /* CustomMenuViewController.swift */,
 				FFA5A12B1DA62446009C5CA3 /* Main.storyboard */,
 				FFA5A12E1DA62446009C5CA3 /* Assets.xcassets */,
 				FFA5A1301DA62446009C5CA3 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFA5A12A1DA62446009C5CA3 /* ViewController.swift in Sources */,
+				FFA5A13A1DA624F8009C5CA3 /* CustomMenuViewController.swift in Sources */,
 				FFA5A1281DA62446009C5CA3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
