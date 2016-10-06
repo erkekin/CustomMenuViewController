@@ -8,14 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController , UITextViewDelegate, UIPopoverPresentationControllerDelegate{
+class ViewController: UIViewController , DetailViewControllerDelegate, UIPopoverPresentationControllerDelegate{
     
     var filterDistanceViewController:UIViewController!
+    @IBOutlet weak var textView: CustomMenuViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         filterDistanceViewController = (self.storyboard?.instantiateViewController(withIdentifier: "popover"))!
+        self.filterDistanceViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+        self.filterDistanceViewController.preferredContentSize = CGSize(width: 375, height: 113)
+        
+        textView.popoverDelegate = self;
         
     }
     
@@ -24,22 +29,19 @@ class ViewController: UIViewController , UITextViewDelegate, UIPopoverPresentati
         
     }
     
-    func textViewDidChangeSelection(_ textView: UITextView) {
+    func movePopoverTo(rect: CGRect) {
         
-        print("selaaam")
-        self.filterBooks(rect: textView.caretRect(for: (textView.selectedTextRange?.end)!))
+        
+        self.showPopover(rect: rect)
+        
     }
     
-    
-    @IBAction func filterBooks(rect: CGRect)
+    @IBAction func showPopover(rect: CGRect)
     {
         
         DispatchQueue.main.async {
-            self.filterDistanceViewController.modalPresentationStyle = UIModalPresentationStyle.popover
-            
-            self.filterDistanceViewController.preferredContentSize = CGSize(width: 300, height: 200)
             let popoverPresentationViewController = self.filterDistanceViewController.popoverPresentationController
-            popoverPresentationViewController?.permittedArrowDirections = .up
+            popoverPresentationViewController?.permittedArrowDirections = [.up, .down]
             popoverPresentationViewController?.delegate = self
             
             popoverPresentationViewController?.sourceView = self.view;

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,25 +33,16 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ILH-fG-unJ"/>
                                 </connections>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcy-Wi-dhs">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="4RR-HU-bDG"/>
-                                    <constraint firstAttribute="width" constant="46" id="uMM-Z8-Qix"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="filterBooksWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o3v-ya-p8b"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5398483878" blue="0.31395346089999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="z2D-wD-7ec" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B51-aS-7Bg"/>
                             <constraint firstItem="z2D-wD-7ec" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.6" id="Qng-c0-QP0"/>
-                            <constraint firstItem="gcy-Wi-dhs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sfd-iI-UNb"/>
-                            <constraint firstItem="z2D-wD-7ec" firstAttribute="top" secondItem="gcy-Wi-dhs" secondAttribute="bottom" constant="8" id="UXK-Ox-HOb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="z2D-wD-7ec" id="rCU-GK-F8K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,6 +52,8 @@
         <scene sceneID="9QA-MP-1VU">
             <objects>
                 <navigationController storyboardIdentifier="popover" navigationBarHidden="YES" id="XlN-WX-8Xt" sceneMemberID="viewController">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rii-CZ-AqY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -84,25 +78,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noO-Ea-SNB">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3RV-MT-vVb">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="GBN-7a-TQi"/>
-                                    <constraint firstAttribute="height" constant="30" id="cSE-sl-NxI"/>
+                                    <constraint firstAttribute="width" secondItem="3RV-MT-vVb" secondAttribute="height" multiplier="200:50" id="51T-nq-Qui"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                            </button>
+                                <connections>
+                                    <segue destination="ouo-Fi-H5g" kind="embed" id="E8L-mh-lwm"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="noO-Ea-SNB" firstAttribute="centerY" secondItem="H69-Gt-Anc" secondAttribute="centerY" id="Mjr-Mb-6Pw"/>
-                            <constraint firstItem="noO-Ea-SNB" firstAttribute="centerX" secondItem="H69-Gt-Anc" secondAttribute="centerX" id="i9B-bK-8Tu"/>
+                            <constraint firstItem="3RV-MT-vVb" firstAttribute="centerX" secondItem="H69-Gt-Anc" secondAttribute="centerX" id="5XJ-E2-0kp"/>
+                            <constraint firstItem="3RV-MT-vVb" firstAttribute="width" secondItem="H69-Gt-Anc" secondAttribute="width" id="Sxp-ae-tej"/>
+                            <constraint firstItem="3RV-MT-vVb" firstAttribute="centerY" secondItem="H69-Gt-Anc" secondAttribute="centerY" id="gZT-xM-Wtz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZdA-Jy-C5p"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVh-gW-1yR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1551" y="145"/>
+            <point key="canvasLocation" x="1653.5999999999999" y="143.47826086956522"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="g3c-hW-aVF">
+            <objects>
+                <viewController id="ouo-Fi-H5g" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Svp-0d-fy4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7k-bG-BDG">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Mze-X0-Sr6"/>
+                                    <constraint firstAttribute="height" constant="30" id="mfd-g7-Zgx"/>
+                                </constraints>
+                                <state key="normal" title="i"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DH5-ES-CT5">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Fww-Yi-3Yu"/>
+                                    <constraint firstAttribute="width" constant="30" id="huM-4b-umt"/>
+                                </constraints>
+                                <state key="normal" title="U"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0G-lA-lh5">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="AEC-ii-uZR"/>
+                                    <constraint firstAttribute="height" constant="30" id="gOx-Pm-Rf6"/>
+                                </constraints>
+                                <state key="normal" title="B"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DH5-ES-CT5" firstAttribute="leading" secondItem="c7k-bG-BDG" secondAttribute="trailing" constant="8" id="6ib-7u-EUN"/>
+                            <constraint firstItem="DH5-ES-CT5" firstAttribute="centerY" secondItem="c7k-bG-BDG" secondAttribute="centerY" id="MtR-6o-kCJ"/>
+                            <constraint firstItem="c7k-bG-BDG" firstAttribute="centerY" secondItem="Svp-0d-fy4" secondAttribute="centerY" id="PrC-xc-a4M"/>
+                            <constraint firstItem="c7k-bG-BDG" firstAttribute="leading" secondItem="b0G-lA-lh5" secondAttribute="trailing" constant="8" id="hhG-sM-k8U"/>
+                            <constraint firstItem="c7k-bG-BDG" firstAttribute="centerX" secondItem="Svp-0d-fy4" secondAttribute="centerX" id="rP4-p6-2MY"/>
+                            <constraint firstItem="b0G-lA-lh5" firstAttribute="centerY" secondItem="c7k-bG-BDG" secondAttribute="centerY" id="w4g-12-GUD"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NDh-RS-phL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2508" y="144.3778110944528"/>
         </scene>
     </scenes>
 </document>

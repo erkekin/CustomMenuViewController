@@ -8,7 +8,17 @@
 
 import UIKit
 
+@objc protocol DetailViewControllerDelegate: class {
+    
+    func movePopoverTo(rect: CGRect)
+    
+}
+
+
+
 class CustomMenuViewController: UITextView {
+    
+    @IBOutlet weak var popoverDelegate:DetailViewControllerDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -19,11 +29,24 @@ class CustomMenuViewController: UITextView {
     
     func willShowMenu(){
         
-        print("deneme");
-        
         DispatchQueue.main.async {
             
             UIMenuController.shared.setMenuVisible(false, animated: false)
+            
+            if let selectedRectEnd = self.selectedTextRange?.end {
+                if let selectedRectStart = self.selectedTextRange?.start {
+                    
+                    let start = self.caretRect(for: selectedRectStart)
+                    let end = self.caretRect(for: selectedRectEnd)
+                    let unionRect = start.union(end)
+                    
+                    
+                    
+                    self.popoverDelegate?.movePopoverTo(rect: self .convert(unionRect, to: self.superview))
+                    
+                }
+            }
+            
             
         }
     }
