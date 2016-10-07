@@ -8,9 +8,6 @@
 
 import UIKit
 
-
-
-
 class ViewController: UIViewController , DetailViewControllerDelegate, UIPopoverPresentationControllerDelegate, UITextViewDelegate{
     
     var isPopoverVisible = false;
@@ -38,42 +35,38 @@ class ViewController: UIViewController , DetailViewControllerDelegate, UIPopover
     
     func movePopoverTo(rect: CGRect)
     {
-        if  self.isPopoverVisible == true {
-            if let popoverPresentationViewController = self.filterDistanceViewController.popoverPresentationController
-            {
-                popoverPresentationViewController.sourceRect = rect
-            }
-            return
-            
-        }
         
         DispatchQueue.main.async {
             
-            if let popoverPresentationViewController = self.filterDistanceViewController.popoverPresentationController
+            if  self.isPopoverVisible == true {
+                
+                if let _ = self.filterDistanceViewController.popoverPresentationController
+                {
+                   self.filterDistanceViewController.dismiss(animated: true, completion: nil)
+                    self.isPopoverVisible = false
+                }
+                return
+            }
+            
+            if let popover = self.filterDistanceViewController.popoverPresentationController
             {
-                popoverPresentationViewController.permittedArrowDirections = [.up, .down]
-                popoverPresentationViewController.delegate = self
-                
-                popoverPresentationViewController.sourceView = self.view;
-                
-                popoverPresentationViewController.sourceRect = rect
+                popover.permittedArrowDirections = [.up, .down]
+                popover.delegate = self
+                popover.backgroundColor = .white
+                popover.sourceView = self.view
+                popover.passthroughViews = [self.textView]
+                popover.sourceRect = rect
                 
                 self.present(self.filterDistanceViewController, animated: true, completion: nil)
                 self.isPopoverVisible = true
             }
-
+            
         }
         
     }
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-        
-          self.isPopoverVisible = false
-    }
-    func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
-        
         textView.selectedTextRange = nil;
-        
-        return true
+        self.isPopoverVisible = false
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
