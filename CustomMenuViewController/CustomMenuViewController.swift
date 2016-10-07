@@ -25,8 +25,9 @@ class CustomMenuViewController: UITextView {
         
     }
     
+
     func willShowMenu(){
-   
+        
         DispatchQueue.main.async {
             
             UIMenuController.shared.setMenuVisible(false, animated: false)
